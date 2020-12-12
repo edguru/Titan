@@ -16,7 +16,7 @@ from ... import client as _client  # pylint: disable=unused-import
 class Command(Filter):
     """ command class """
     def __init__(self, about: str, trigger: str, pattern: str,
-                 **kwargs: Union['_client.naruto', int, str, bool]) -> None:
+                 **kwargs: Union['_client.Naruto', int, str, bool]) -> None:
         self.about = about
         self.trigger = trigger
         self.pattern = pattern
@@ -26,7 +26,7 @@ class Command(Filter):
     def parse(cls, command: str,  # pylint: disable=arguments-differ
               about: Union[str, Dict[str, Union[str, List[str], Dict[str, str]]]],
               trigger: str, name: str, filter_me: bool,
-              **kwargs: Union['_client.naruto', int, bool]) -> 'Command':
+              **kwargs: Union['_client.Naruto', int, bool]) -> 'Command':
         """ parse command """
         pattern = f"^(?:\\{trigger}|\\{Config.SUDO_TRIGGER}){command.lstrip('^')}" if trigger \
             else f"^{command.lstrip('^')}"
