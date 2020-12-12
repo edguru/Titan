@@ -1,6 +1,6 @@
 
 
-__all__ = ['naruto']
+__all__ = ['Naruto']
 
 import time
 import signal
