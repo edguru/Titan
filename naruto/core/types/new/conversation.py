@@ -26,7 +26,7 @@ class _MsgLimitReached(Exception):
 class Conversation:
     """ Conversation class for naruto """
     def __init__(self,
-                 client: '_client.naruto',
+                 client: '_client.Naruto',
                  chat: Union[str, int],
                  user: Union[str, int],
                  timeout: Union[int, float],
@@ -137,7 +137,7 @@ class Conversation:
                                                    message_ids=message.message_id)
 
     @staticmethod
-    def init(client: '_client.naruto') -> None:
+    def init(client: '_client.Naruto') -> None:
         """ initialize the conversation method """
         async def _on_conversation(_, msg: RawMessage) -> None:
             data = _CONV_DICT[msg.chat.id]
