@@ -83,7 +83,7 @@ class Filter:
     """ filter class """
     def __init__(self,
                  filters: RawFilter,
-                 client: '_client.naruto',
+                 client: '_client.Naruto',
                  group: int,
                  scope: List[str],
                  only_admins: bool,
@@ -124,7 +124,7 @@ class Filter:
         self._handler: Handler
 
     @classmethod
-    def parse(cls, **kwargs: Union[RawFilter, '_client.naruto', int, bool]) -> 'Filter':
+    def parse(cls, **kwargs: Union[RawFilter, '_client.Naruto', int, bool]) -> 'Filter':
         """ parse filter """
         return cls(**Filter._parse(**kwargs))  # pylint: disable=protected-access
 
@@ -133,8 +133,8 @@ class Filter:
                allow_bots: bool,
                allow_groups: bool,
                allow_channels: bool,
-               **kwargs: Union[RawFilter, '_client.naruto', int, bool]
-               ) -> Dict[str, Union[RawFilter, '_client.naruto', int, bool]]:
+               **kwargs: Union[RawFilter, '_client.Naruto', int, bool]
+               ) -> Dict[str, Union[RawFilter, '_client.Naruto', int, bool]]:
         kwargs['check_client'] = kwargs['allow_via_bot'] and kwargs['check_client']
         kwargs['scope']: List[str] = []
         if allow_bots:
