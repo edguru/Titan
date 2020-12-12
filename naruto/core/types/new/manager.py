@@ -13,7 +13,7 @@ _FLT = Union[Filter, Command]
 
 class Manager:
     """ manager for naruto """
-    def __init__(self, client: '_client.naruto') -> None:
+    def __init__(self, client: '_client.Naruto') -> None:
         self._client = client
         self.plugins: Dict[str, Plugin] = {}
 
