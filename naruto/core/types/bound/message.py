@@ -24,7 +24,7 @@ _LOG_STR = "<<<!  :::::  %s  :::::  !>>>"
 class Message(RawMessage):
     """ Modded Message Class For naruto """
     def __init__(self,
-                 client: Union['_client.naruto', '_client._narutoBot'],
+                 client: Union['_client.Naruto', '_client._narutoBot'],
                  mvars: Dict[str, object], module: str, **kwargs: Union[str, bool]) -> None:
         self._filtered = False
         self._filtered_input_str = ''
@@ -35,7 +35,7 @@ class Message(RawMessage):
         super().__init__(client=client, **mvars)
 
     @classmethod
-    def parse(cls, client: Union['_client.naruto', '_client._narutoBot'],
+    def parse(cls, client: Union['_client.Naruto', '_client._narutoBot'],
               message: RawMessage, **kwargs: Union[str, bool]) -> 'Message':
         """ parse message """
         mvars = vars(message)
@@ -49,7 +49,7 @@ class Message(RawMessage):
         return cls(client, mvars, **kwargs)
 
     @property
-    def client(self) -> Union['_client.naruto', '_client._narutoBot']:
+    def client(self) -> Union['_client.Naruto', '_client._narutoBot']:
         """ returns client """
         return self._client
 
