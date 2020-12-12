@@ -23,7 +23,7 @@ def _gen_string(name: str) -> str:
 
 class ChannelLogger:
     """ Channel logger for naruto """
-    def __init__(self, client: Union['_client.naruto', '_client._narutoBot'], name: str) -> None:
+    def __init__(self, client: Union['_client.Naruto', '_client._narutoBot'], name: str) -> None:
         self._id = Config.LOG_CHANNEL_ID
         self._client = client
         self._string = _gen_string(name)
@@ -150,7 +150,7 @@ class ChannelLogger:
         return message_id
 
     async def forward_stored(self,
-                             client: Union['_client.naruto', '_client._narutoBot'],
+                             client: Union['_client.Naruto', '_client._narutoBot'],
                              message_id: int,
                              chat_id: int,
                              user_id: int,
@@ -159,7 +159,7 @@ class ChannelLogger:
         """\nforward stored message from log channel.
 
         Parameters:
-            client (`naruto` | `narutoBot`):
+            client (`Naruto` | `narutoBot`):
                 Pass naruto or narutoBot.
 
             message_id (`int`):
