@@ -74,7 +74,7 @@ def _clear_cht() -> None:
     _TASK_1_START_TO = time.time()
 
 
-async def _init(r_c: Union['_client.naruto', '_client._narutoBot'],
+async def _init(r_c: Union['_client.Naruto', '_client._narutoBot'],
                 r_m: RawMessage) -> None:
     global _U_ID, _B_ID  # pylint: disable=global-statement
     if r_m.from_user and (r_m.from_user.is_self
@@ -83,7 +83,7 @@ async def _init(r_c: Union['_client.naruto', '_client._narutoBot'],
         RawClient.LAST_OUTGOING_TIME = time.time()
     if _U_ID and _B_ID:
         return
-    if isinstance(r_c, _client.naruto):
+    if isinstance(r_c, _client.Naruto):
         if not _U_ID:
             _U_ID = (await r_c.get_me()).id
         if RawClient.DUAL_MODE and not _B_ID:
@@ -95,7 +95,7 @@ async def _init(r_c: Union['_client.naruto', '_client._narutoBot'],
             _U_ID = (await r_c.ubot.get_me()).id
 
 
-async def _raise_func(r_c: Union['_client.naruto', '_client._narutoBot'],
+async def _raise_func(r_c: Union['_client.Naruto', '_client._narutoBot'],
                       chat_id: int, message_id: int, text: str) -> None:
     try:
         _sent = await r_c.send_message(
@@ -108,23 +108,23 @@ async def _raise_func(r_c: Union['_client.naruto', '_client._narutoBot'],
         pass
 
 
-async def _is_admin(r_c: Union['_client.naruto', '_client._narutoBot'],
+async def _is_admin(r_c: Union['_client.Naruto', '_client._narutoBot'],
                     r_m: RawMessage) -> bool:
     if r_m.chat.type in ("private", "bot"):
         return False
     if round(time.time() - _TASK_1_START_TO) > 10:
         _clear_cht()
-    if isinstance(r_c, _client.naruto):
+    if isinstance(r_c, _client.Naruto):
         await _update_u_cht(r_m)
         return r_m.chat.id in _U_AD_CHT
     await _update_b_cht(r_m)
     return r_m.chat.id in _B_AD_CHT
 
 
-async def _bot_is_present(r_c: Union['_client.naruto', '_client._narutoBot'],
+async def _bot_is_present(r_c: Union['_client.Naruto', '_client._narutoBot'],
                           r_m: RawMessage) -> bool:
     global _TASK_2_START_TO  # pylint: disable=global-statement
-    if isinstance(r_c, _client.naruto):
+    if isinstance(r_c, _client.Naruto):
         if round(time.time() - _TASK_2_START_TO) > 10:
             try:
                 chats = await r_c.get_common_chats(_B_ID)
@@ -140,11 +140,11 @@ async def _bot_is_present(r_c: Union['_client.naruto', '_client._narutoBot'],
     return r_m.chat.id in _B_CMN_CHT
 
 
-def _get_chat_member(r_c: Union['_client.naruto', '_client._narutoBot'],
+def _get_chat_member(r_c: Union['_client.Naruto', '_client._narutoBot'],
                      r_m: RawMessage) -> Optional[ChatMember]:
     if r_m.chat.type in ("private", "bot"):
         return None
-    if isinstance(r_c, _client.naruto):
+    if isinstance(r_c, _client.Naruto):
         if r_m.chat.id in _U_AD_CHT:
             return _U_AD_CHT[r_m.chat.id]
         return _U_NM_CHT[r_m.chat.id]
@@ -153,7 +153,7 @@ def _get_chat_member(r_c: Union['_client.naruto', '_client._narutoBot'],
     return _B_NM_CHT[r_m.chat.id]
 
 
-async def _both_are_admins(r_c: Union['_client.naruto', '_client._narutoBot'],
+async def _both_are_admins(r_c: Union['_client.Naruto', '_client._narutoBot'],
                            r_m: RawMessage) -> bool:
     if not await _bot_is_present(r_c, r_m):
         return False
@@ -161,7 +161,7 @@ async def _both_are_admins(r_c: Union['_client.naruto', '_client._narutoBot'],
 
 
 async def _both_have_perm(flt: Union['types.raw.Command', 'types.raw.Filter'],
-                          r_c: Union['_client.naruto', '_client._narutoBot'],
+                          r_c: Union['_client.Naruto', '_client._narutoBot'],
                           r_m: RawMessage) -> bool:
     if not await _bot_is_present(r_c, r_m):
         return False
@@ -211,7 +211,7 @@ class RawDecorator(RawClient):
                          flt: Union['types.raw.Command', 'types.raw.Filter'],
                          **kwargs: Union[str, bool]) -> 'RawDecorator._PYRORETTYPE':
         def decorator(func: _PYROFUNC) -> _PYROFUNC:
-            async def template(r_c: Union['_client.naruto', '_client._narutoBot'],
+            async def template(r_c: Union['_client.Naruto', '_client._narutoBot'],
                                r_m: RawMessage) -> None:
                 await _init(r_c, r_m)
                 _raise = partial(_raise_func, r_c, r_m.chat.id, r_m.message_id)
@@ -279,7 +279,7 @@ class RawDecorator(RawClient):
                                 if isinstance(r_c, _client._narutoBot):
                                     return
                             elif await _bot_is_present(r_c, r_m):
-                                if isinstance(r_c, _client.naruto):
+                                if isinstance(r_c, _client.Naruto):
                                     return
                 if flt.check_downpath and not os.path.isdir(Config.DOWN_PATH):
                     os.makedirs(Config.DOWN_PATH)
