@@ -107,7 +107,7 @@ class _narutoBot(_Abstractnaruto):
         return self._bot
 
 
-class naruto(_Abstractnaruto):
+class Naruto(_Abstractnaruto):
     """ naruto, the userbot """
 
     has_bot = bool(Config.BOT_TOKEN)
@@ -128,7 +128,7 @@ class naruto(_Abstractnaruto):
         super().__init__(**kwargs)
 
     @property
-    def bot(self) -> Union['_narutoBot', 'naruto']:
+    def bot(self) -> Union['_narutoBot', 'Naruto']:
         """ returns narutobot """
         if self._bot is None:
             if Config.BOT_TOKEN:
