@@ -4,8 +4,8 @@ from naruto.core import (  # noqa
     Naruto, filters, Message, get_collection, pool)
 
 naruto= Naruto()  # userge is the client name
-if USERBOT_SESSION and ASSISTANT_SESSION:
-    BOT_SESSION = BOT_TOKEN
+if HU_STRING_SESSION and ASSISTANT_SESSION:
+    BOT_SESSION = ASSISTANT_SESSION
     APP_SESSION = HU_STRING_SESSION
 
 gauth = GoogleAuth()
