@@ -3,14 +3,14 @@ from platform import python_version
 from pyrogram import filters, errors
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from naruto import setbot, app, USERBOT_VERSION, ASSISTANT_VERSION, DB_AVAILABLE, HEROKU_API, Owner
+from naruto import setbot, naruto, USERBOT_VERSION, ASSISTANT_VERSION, DB_AVAILABLE, HEROKU_API, Owner
 from naruto.__main__ import reload_userbot, restart_all
 from .theme.theme_helper import get_theme
 
 
 async def is_userbot_run():
     try:
-        return await app.get_me()
+        return await naruto.get_me()
     except ConnectionError:
         return None
 
@@ -47,7 +47,7 @@ async def get_button_settings():
 @setbot.on_callback_query(filters.regex("^toggle_startbot"))
 async def start_stop_bot(client, query):
     try:
-        await app.stop()
+        await naruto.stop()
     except ConnectionError:
         await reload_userbot()
         text = await get_text_settings()
