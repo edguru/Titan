@@ -6,8 +6,8 @@ import time
 from pyrogram import filters
 from pyrogram.types import ReplyKeyboardMarkup
 
-from nana import setbot, AdminSettings, DB_AVAILABLE, naruto, Owner
-from nana.assistant.database.stickers_db import set_sticker_set, set_stanim_set
+from naruto import setbot, AdminSettings, DB_AVAILABLE, naruto, Owner
+from naruto.assistant.database.stickers_db import set_sticker_set, set_stanim_set
 from .settings import get_text_settings, get_button_settings
 
 TODEL = {}
