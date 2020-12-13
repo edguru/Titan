@@ -7,7 +7,7 @@ naruto= Naruto()  # userge is the client name
 if HU_STRING_SESSION and ASSISTANT_SESSION:
     BOT_SESSION = ASSISTANT_SESSION
     APP_SESSION = HU_STRING_SESSION
-
+OWNER = OWNER_ID
 gauth = GoogleAuth()
 
 DB_AVAILABLE = False
