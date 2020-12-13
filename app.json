@@ -56,6 +56,9 @@
              "value": "8",
              "required": false
     },
+        "ASSISTANT_SESSION": {
+             "description": "make string session with bot token"
+    }
     "addons": [{
     "plan": "heroku-postgresql",
     "options": {
