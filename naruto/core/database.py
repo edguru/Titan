@@ -15,7 +15,7 @@ _LOG_STR = "$$$>>> %s <<<$$$"
 
 logbot.edit_last_msg("Connecting to Database ...", _LOG.info, _LOG_STR)
 
-_MGCLIENT: AgnosticClient = AsyncIOMotorClient(Config.DB_URI)
+_MGCLIENT: AgnosticClient = AsyncIOMotorClient(Config.DB_URI2)
 _RUN = asyncio.get_event_loop().run_until_complete
 
 if "naruto" in _RUN(_MGCLIENT.list_database_names()):
