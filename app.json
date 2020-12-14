@@ -31,11 +31,6 @@
         "HEROKU_API_KEY": {
             "description": "get a Heroku API key from http://dashboard.heroku.com/account",
         },
-        "NANA_IMG": {
-            "description": "(optional) Url of a photo to show up in your Assistant",
-            "value": "",
-            "required": false
-                },
         "remove_bg_api": {
             "description": "(optional) Register at : https://www.remove.bg/",
             "required": false
