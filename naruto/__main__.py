@@ -41,7 +41,7 @@ async def reinitial_restart():
 async def reboot():
     global BOT_RUNTIME, HELP_COMMANDS
     importlib.reload(importlib.import_module("naruto.plugins"))
-    importlib.reload(importlib.import_module("nana.assistant"))
+    importlib.reload(importlib.import_module("naruto.assistant"))
     # await setbot.send_message(Owner, "Bot is restarting...")
     await setbot.restart()
     await naruto.restart()
