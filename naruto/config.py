@@ -4,7 +4,6 @@ from typing import Set
 import heroku3
 from git import Repo
 from pyrogram import filters
-
 from naruto import logging, logbot
 from . import versions
 
@@ -24,6 +23,8 @@ class Config:
     OWNER_ID = tuple(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "0").split())))
     LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID"))
     DB_URI = os.environ.get("DATABASE_URL")
+    BOT_IMG = os.environ.get("BOT_IMG")
+    DB_URI2 = os.environ.get("MONGODB_URL")
     LANG = os.environ.get("PREFERRED_LANGUAGE")
     DOWN_PATH = os.environ.get("DOWN_PATH")
     CMD_TRIGGER = os.environ.get("CMD_TRIGGER")
