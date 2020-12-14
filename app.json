@@ -27,9 +27,10 @@
             "required": false},
         "HEROKU_APP_NAME": {
             "description": "given app name to the heroku app",
-           }
+           },
         "HEROKU_API_KEY": {
             "description": "get a Heroku API key from http://dashboard.heroku.com/account",
+        },
         "NANA_IMG": {
             "description": "(optional) Url of a photo to show up in your Assistant",
             "value": "",
@@ -38,6 +39,7 @@
         "remove_bg_api": {
             "description": "(optional) Register at : https://www.remove.bg/",
             "required": false
+        },
         "lydia_api": {
             "description": "(optional) Fill in your Coffeehouse API, get from https://coffeehouse.intellivoid.net",
             "required": false
@@ -45,11 +47,11 @@
         "bitly_token": {
             "description": "(optional) Register at : https://http://app.bitly.com/ profile settings -> generic access token",
             "required": false
-            }
+            },
         "BOT_IMG": {
             "description": "(optional) Url of a photo to show up in your Assistant",
             "required": false
-            }
+            },
         "ASSISTANT_WORKER": {
             "description": "(optional) Worker for Assistant bot",
             "value": "2",
@@ -62,12 +64,12 @@
     },
         "ASSISTANT_SESSION": {
              "description": "make string session with bot token"
-    }
+    },
     "addons": [{
     "plan": "heroku-postgresql",
     "options": {
       "version": "12"
-    }
+    },
     "buildpacks": [
         {"url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"},
         {"url": "https://github.com/HasibulKabir/heroku-buildpack-rarlab.git"},
