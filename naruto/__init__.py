@@ -1,9 +1,13 @@
-from naruto.logger import logging  # noqa
-from naruto.config import Config, get_version  # noqa
-from naruto.core import (  # noqa
+from naruto.logger import logging 
+from pyrogram import Client, errors
+from naruto.config import Config, get_version  
+from naruto.core import ( 
     Naruto, filters, Message, get_collection, pool)
+from sqlalchemy import create_engine, exc
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, scoped_session
 
-naruto= Naruto()  # userge is the client name
+naruto= Naruto() 
 if HU_STRING_SESSION and ASSISTANT_SESSION:
     BOT_SESSION = ASSISTANT_SESSION
     APP_SESSION = HU_STRING_SESSION
