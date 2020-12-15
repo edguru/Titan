@@ -4,7 +4,7 @@ from platform import python_version
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from  import app, setbot, AdminSettings, DB_AVAILABLE, USERBOT_VERSION, ASSISTANT_VERSION, BotUsername, Owner, \
+from naruto import naruto, setbot, AdminSettings, DB_AVAILABLE, USERBOT_VERSION, ASSISTANT_VERSION, BotUsername, Owner, \
     OwnerName
 from naruto.assistant.settings import get_text_settings, get_button_settings
 from naruto.assistant.theme.theme_helper import get_theme
@@ -39,7 +39,7 @@ Convert a text to various style, can be used anywhere!
                 "join our community @TitanSupportGroup")
             return
     try:
-        me = await app.get_me()
+        me = await naruto.get_me()
     except ConnectionError:
         me = None
     start_message = f"Hi {OwnerName},\n"
@@ -65,7 +65,7 @@ Convert a text to various style, can be used anywhere!
 @setbot.on_message(filters.user(AdminSettings) & filters.command(["getme"]))
 async def get_myself(client, message):
     try:
-        me = await app.get_me()
+        me = await naruto.get_me()
     except ConnectionError:
         message.reply("Bot is currently turned off!")
         return
@@ -94,7 +94,7 @@ async def get_myself(client, message):
 @setbot.on_callback_query(filters.regex("^hide_number"))
 async def get_myself_btn(client, query):
     try:
-        me = await app.get_me()
+        me = await naruto.get_me()
     except ConnectionError:
         await client.answer_callback_query(query.id, "Bot is currently turned off!", show_alert=True)
         return
@@ -121,12 +121,12 @@ async def get_myself_btn(client, query):
 
 @setbot.on_callback_query(filters.regex("^report_errors"))
 async def report_some_errors(client, query):
-    app.join_chat("@TitanSupportGroup")
+    naruto.join_chat("@TitanSupportGroup")
     text = "Hi @TitanSupportGroup, i got an error for you.\nPlease take a look and fix it if possible.\n\nThank you ❤️"
     err = query.message.text
     open("naruto/cache/errors.txt", "w").write(err)
     await query.message.edit_reply_markup(reply_markup=None)
-    await app.send_document("titan", "nana/cache/errors.txt", caption=text)
+    await naruto.send_document("titan", "naruto/cache/errors.txt", caption=text)
     os.remove("naruto/cache/errors.txt")
     await client.answer_callback_query(query.id, "Report was sent!")
 
