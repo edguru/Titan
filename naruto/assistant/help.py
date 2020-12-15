@@ -5,7 +5,7 @@ from __main__ import HELP_COMMANDS
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from naruto import setbot, AdminSettings, Command, DB_AVAILABLE, StartTime, NANA_IMG, Owner
+from naruto import setbot, AdminSettings, Command, DB_AVAILABLE, StartTime, BOT_IMG, Owner
 from naruto.assistant.theme.theme_helper import get_theme
 from naruto.helpers.misc import paginate_modules
 from naruto.modules.chats import get_msgc
@@ -54,8 +54,8 @@ def get_readable_time(seconds: int) -> str:
 async def help_parser(client, chat_id, text, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELP_COMMANDS, "help"))
-    if NANA_IMG:
-        await client.send_photo(chat_id, NANA_IMG, caption=text, reply_markup=keyboard)
+    if BOT_IMG:
+        await client.send_photo(chat_id, BOT_IMG, caption=text, reply_markup=keyboard)
     else:
         await client.send_message(chat_id, text, reply_markup=keyboard)
 
@@ -107,6 +107,6 @@ async def stats(_client, message):
     text += "<b>Message received:</b> `{} messages`\n".format(get_msgc())
 
     uptime = get_readable_time((time.time() - StartTime))
-    text += ("<b>Nana uptime:</b> <code>{}</code>".format(uptime))
+    text += ("<b>TITAN uptime:</b> <code>{}</code>".format(uptime))
     img = await get_theme("stats")
     await setbot.send_photo(Owner, img, caption=text)
