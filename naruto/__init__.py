@@ -16,8 +16,12 @@ gauth = GoogleAuth()
 
 DB_AVAILABLE = False
 BOTINLINE_AVAIABLE = False
-
-
+USERBOT_VERSION = 0.1
+ASSISTANT_VERSION = 0.1
+USERBOT_LOAD =""
+USERBOT_NOLOAD = ""
+ASSISTANT_LOAD = ""
+ASSISTANT_NOLOAD = ""
 # Postgresql
 def mulaisql() -> scoped_session:
     global DB_AVAILABLE
