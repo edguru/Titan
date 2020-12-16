@@ -69,5 +69,3 @@ SESSION = mulaisql()
 setbot = Client(BOT_SESSION, api_id=api_id, api_hash=api_hash, bot_token=ASSISTANT_BOT_TOKEN, workers=ASSISTANT_W,
                 test_mode=TEST_MODE)
 
-app = Client(APP_SESSION, api_id=api_id, api_hash=api_hash, app_version=app_version, device_model=device_model,
-             system_version=system_version, workers=BOT_W, test_mode=TEST_MODE)
