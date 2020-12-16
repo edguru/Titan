@@ -1,16 +1,16 @@
 {
-    "name": "Userge",
+    "name": "titan",
     "description": "telegram pluggable userbot",
     "logo": "https://imgur.com/download/Inyeb1S",
     "keywords": [
-        "userge",
+        "titan",
         "telegram",
         "pluggable",
         "userbot"
     ],
-    "repository": "https://github.com/UsergeTeam/Userge",
-    "website": "https://github.com/Userge",
-    "success_url": "https://t.me/theUserge",
+    "repository": "https://github.com/CurseIsLove/Titan",
+    "website": "https://github.com/CurseIsLove",
+    "success_url": "https://t.me/titansupport",
     "env": {
         "API_ID": {"description": "Get this value from https://my.telegram.org"},
         "API_HASH": {"description": "Get this value from https://my.telegram.org"},
