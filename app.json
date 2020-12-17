@@ -11,7 +11,10 @@
     "repository": "https://github.com/CurseIsLove/Titan",
     "website": "https://github.com/CurseIsLove",
     "success_url": "https://t.me/titansupport",
-    "env": {
+        "ENV": {
+             "description": "Fill this if you using environ variable as config.",
+             "value": "Yes"
+               },
         "API_ID": {"description": "Get this value from https://my.telegram.org"},
         "API_HASH": {"description": "Get this value from https://my.telegram.org"},
         
