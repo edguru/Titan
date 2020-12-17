@@ -44,7 +44,7 @@
         },
         "HEROKU_APP_NAME": {
             "description": "given app name to the heroku app",
-           },
+        },
         "HEROKU_API_KEY": {
             "description": "get a Heroku API key from http://dashboard.heroku.com/account",
         },
