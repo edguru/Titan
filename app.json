@@ -76,11 +76,11 @@
         },
         "ASSISTANT_SESSION": {
              "description": "make string session with bot token"
-        },
+        }},
     "addons": [{
     "plan": "heroku-postgresql",
     "options": {
-      "version": "9.5"
+      "version": "12"
     }}],
     "buildpacks": [
         {"url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"},
@@ -93,5 +93,5 @@
         {"url": "heroku/python"}
     ],
 
-    }
+    
 }
