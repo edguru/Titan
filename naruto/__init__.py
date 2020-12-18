@@ -1,6 +1,6 @@
 from naruto.logger import logging 
 from pyrogram import Client, errors
-from naruto.config import Config, get_version  
+from naruto.config import Config
 from naruto.core import ( 
     Naruto, filters, Message, get_collection, pool)
 from sqlalchemy import create_engine, exc
