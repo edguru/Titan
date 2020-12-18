@@ -35,7 +35,7 @@
     },
     "HU_STRING_SESSION": {
       "description": "[USER MODE] - Get this using 'https://GenUserGeString.usergeuserbot.repl.run' or `bash genStr`",
-      "value": "",
+      "value": ""
     },
     "BOT_TOKEN": {
       "description": "[BOT MODE] - Get this from https://t.me/botfather",
