@@ -83,7 +83,7 @@ _checkDatabase() {
     local mongoErr=$(runPythonCode '
 import pymongo
 try:
-    pymongo.MongoClient("'$DATABASE_URL'").list_database_names()
+    pymongo.MongoClient("'$MONGODB_URL'").list_database_names()
 except Exception as e:
     print(e)')
     [[ $mongoErr ]] && quit "pymongo response > $mongoErr" || log "\tpymongo response > {status : 200}"
