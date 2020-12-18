@@ -36,7 +36,6 @@ urbandict==0.5
 wget
 wikipedia
 youtube_dl>=2020.09.20
-googletrans==3.0.0
 currencyconverter
 bitlyshortener==0.3.5
 uptime
